@@ -1,0 +1,17 @@
+version: '3.8'
+
+services:
+  llm-assistant:
+    build: .
+    container_name: llm-assistant
+    ports:
+      - "5000:5000"
+    environment:
+      - NODE_ENV=production
+      - SESSION_SECRET=your_session_secret_here
+    volumes:
+      - app-data:/app/data
+    restart: unless-stopped
+
+volumes:
+  app-data:
